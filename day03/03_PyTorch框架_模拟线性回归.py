@@ -7,7 +7,7 @@ from torch import optim  # optim模块中有优化器函数
 from sklearn.datasets import make_regression  # 创建线性回归模型数据集
 import matplotlib.pyplot as plt  # 可视化
 
-plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['font.sans-serif'] = ['Heiti TC', 'STSong', 'Apple LiSung', 'SimHei']
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 
