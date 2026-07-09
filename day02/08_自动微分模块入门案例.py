@@ -27,8 +27,8 @@ w = torch.tensor(10, requires_grad=True, dtype=torch.float)
 loss = 2 * w ** 2       # loss = 2w² -> 求导: 4w
 
 # 3. 打印梯度函数类型(了解)
-# print(f'梯度函数类型: {type(loss.grad_fn)}')      # <class 'MulBackward0'>
-# print(loss.sum())
+print(f'梯度函数类型: {type(loss.grad_fn)}')      # <class 'MulBackward0'>
+print(loss.sum())
 
 # 4. 计算梯度, 梯度 = 损失函数的导数, 计算完毕后, 会记录到 w.grad属性中.
 loss.sum().backward()       # 保证loss是1个标量.
