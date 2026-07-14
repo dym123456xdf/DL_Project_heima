@@ -108,7 +108,7 @@ def train(train_dataset, input_dim, output_dim):
     optimizer = optim.SGD(model.parameters(), lr=0.001)
     # 5. 模型训练.
     # 5.1 定义变量, 记录训练的 总轮数.
-    epochs = 50
+    epochs = 20
     # 5.2 开始(每轮的)训练.
     for epoch in range(epochs):
         # 5.2.1 定义变量, 记录每次训练的损失值, 训练批次数.
@@ -173,21 +173,32 @@ def evaluate(test_dataset, input_dim, output_dim):
 
 # todo 5. 测试
 if __name__ == '__main__':
+    print('=' * 60)
+    print('ANN案例: 手机价格分类')
+    print('=' * 60)
+
     # 1. 准备数据集.
     train_dataset, test_dataset, input_dim, output_dim = create_dataset()
-    # print(f'训练集 数据集对象: {train_dataset}')
-    # print(f'测试集 数据集对象: {test_dataset}')
-    # print(f'输入特征数: {input_dim}')    # 20
-    # print(f'输出标签数: {output_dim}')   # 4
+    print(f'输入特征数: {input_dim}, 输出标签数: {output_dim}')
 
     # 2. 构建神经网络模型.
-    # model = PhonePriceModel(input_dim, output_dim)
+    model = PhonePriceModel(input_dim, output_dim)
+    print('=' * 60)
+    print(f'模型结构: \n{model}')
+    print('=' * 60)
+
     # 计算模型参数
     # 参1: 模型对象. 参2: 输入数据的形状(批次大小, 输入特征数), 每批16条, 每条20列特征
-    # summary(model, input_size=(16, input_dim))
+    summary(model, input_size=(16, input_dim))
 
     # 3. 模型训练
-    # train(train_dataset, input_dim, output_dim)
+    print('\n开始训练...')
+    print('=' * 60)
+    train(train_dataset, input_dim, output_dim)
 
     # 4. 模型测试.
+    print('=' * 60)
+    print('模型测试结果:')
     evaluate(test_dataset, input_dim, output_dim)
+    print('=' * 60)
+    print('程序运行完成!')
